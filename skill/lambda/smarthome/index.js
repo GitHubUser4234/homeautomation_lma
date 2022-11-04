@@ -111,15 +111,15 @@ exports.handler = async function (event, context) {
         return sendResponse(adr.get());
     }
 
-    if (namespace.toLowerCase() === 'alexa.powercontroller' || namespace.toLowerCase() === 'alexa.togglecontroller') {
+    if (namespace.toLowerCase() === 'alexa.powercontroller' || namespace.toLowerCase() === 'alexa.togglecontroller'|| namespace.toLowerCase() === 'alexa.scenecontroller') {
 		let endpoint_id = event.directive.endpoint.endpointId;
         let token = event.directive.endpoint.scope.token;
         let correlationToken = event.directive.header.correlationToken;
         let power_state_value = "OFF";
-        if (event.directive.header.name === "TurnOn")
+        if (event.directive.header.name === "TurnOn" || event.directive.header.name === "Activate")
             power_state_value = "ON";
 		
-		await sendToHomeServer(token, event, "xxx1");
+		await sendToCloud(token, event, "pow");
 
 
 
