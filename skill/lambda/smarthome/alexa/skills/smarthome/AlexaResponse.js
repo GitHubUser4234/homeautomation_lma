@@ -132,6 +132,11 @@ class AlexaResponse {
                 "friendlyName": this.checkValue(opts.friendlyName, "Sample Endpoint"),
                 "manufacturerName": this.checkValue(opts.manufacturerName, "Sample Manufacturer")
             };
+		let additionalAttributes = this.checkValue(opts.additionalAttributes, false);
+		if(additionalAttributes){
+			endpoint["additionalAttributes"] = {};
+			endpoint["additionalAttributes"] = additionalAttributes;
+		}
 
         if (opts.hasOwnProperty("cookie"))
             endpoint["cookie"] = this.checkValue('cookie', {});
@@ -155,13 +160,19 @@ class AlexaResponse {
 		if (instance) {
 			capability['instance'] = instance;
 		}
+		
         let supported = this.checkValue(opts.supported, false);
         if (supported) {
             capability['properties'] = {};
             capability['properties']['supported'] = supported;
             capability['properties']['proactivelyReported'] = this.checkValue(opts.proactivelyReported, false);
             capability['properties']['retrievable'] = this.checkValue(opts.retrievable, false);
-        }
+        } else {
+			let proactivelyReported = this.checkValue(opts.proactivelyReported, false);
+			if (proactivelyReported) {
+				capability['proactivelyReported'] = proactivelyReported;
+			}
+		}
 		let actionMappings = this.checkValue(opts.actionMappings, false);
         if (actionMappings) {
             capability['semantics'] = {};
