@@ -19,3 +19,8 @@ Der Homeserver muss in der Lage sein, dem Alexa-Skill auf Anfrage mitzuteilen, w
 - Alexa reagiert schneller, da kein Umweg über die JBMedia-Cloud erfolgt
 - Man kann alle Möglichkeiten der Alexa-API nutzen und z.B. außer  Jalousie, Schalter oder Licht auch andere Controller-Arten wählen
 - Volle Kontrolle wenn mal etwas nicht funktionieren sollte
+
+
+## FAQs
+### Funktionieren Alexa-Türklingeln?
+Ja, Türklingeln einfach in dem dafür vorgesehenen Code des Alexa-Skills einfügen. Theoretisch kann dies auch so umprogammiert werden, dass die verfügbaren Türklingeln vom Homeserver abgerufen werden. Um die Alexa-Klingeln auszulösen, wird im LMA ein LAN-Aktor angelegt, der den Homeserver anweist, einen entsprechenden Event direkt an die Alexa-API zu schicken.
