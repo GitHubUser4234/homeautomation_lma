@@ -90,6 +90,21 @@ exports.handler = async function (event, context) {
 				"supportsDeactivation": false
 			}
 		);
+		
+		let capability_alexa_doorbellcontroller = adr.createPayloadEndpointCapability(
+			{
+				"interface": "Alexa.DoorbellEventSource", 
+				 "version": "3",
+				 "proactivelyReported": true
+			}
+		);
+		
+		var bells = [];//doorbell names here
+		var bellsLength = bells.length;
+		for (var i = 0; i < bellsLength; i++) {
+			adr.addPayloadEndpoint({"friendlyName": bells[i], "endpointId": "d"+(i+1),
+				  "displayCategories": ["DOORBELL"], "capabilities": [capability_alexa, capability_alexa_doorbellcontroller]});
+		}
  
 		for (const scene of respBody["scenes"]) { 
 			adr.addPayloadEndpoint({"friendlyName": scene.name, "endpointId": scene.id, "displayCategories": ["SCENE_TRIGGER"], "capabilities": [capability_alexa, capability_alexa_scenecontroller]});
@@ -119,7 +134,7 @@ exports.handler = async function (event, context) {
         if (event.directive.header.name === "TurnOn" || event.directive.header.name === "Activate")
             power_state_value = "ON";
 		
-		await sendToCloud(token, event, "pow");
+		await sendToCloud(token, event, "xxx");
 
 
 
