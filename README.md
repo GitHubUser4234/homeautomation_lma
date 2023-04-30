@@ -1,5 +1,5 @@
 # Kostenlos den LMA mit Alexa nutzen
-Hier sind ein Beispiel-Alexa-Skill und ein LMA-Parser zu finden, welche dabei helfen sollen, den LMA kostenlos mit Alexa zu nutzen. Warnung: Nur für Leute, die sich im Programmieren auskennen und Benutzung auf eigene Gefahr.
+Hier sind ein Beispiel-Alexa-Skill und ein LMA-Parser zu finden, welche dabei helfen sollen, den LMA kostenlos mit Alexa zu nutzen. Achtung: Nur für Leute, die sich im Programmieren auskennen und Benutzung auf eigene Gefahr.
 
 ## Funktionsweise
 Alexa-App mit privatem Alexa-Skill -> AWS Lambda -> Homeserver -> LMA
